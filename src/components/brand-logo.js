@@ -2,7 +2,7 @@ import * as React from "react"
 
 export default function BrandLogo() {
   return (
-    <img src="/logo-no-background.png"/>
+    <img src="/mitb_bw_noback_82.png"/>
     )
   /* return (
     <svg
