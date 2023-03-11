@@ -11,6 +11,7 @@ module.exports = {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_PROJECT_DATASET,
         token: process.env.SANITY_READ_TOKEN,
+        watchMode: true,
       },
     },
     "gatsby-plugin-sharp",
@@ -29,5 +30,23 @@ module.exports = {
         icon: "src/favicon.png",
       },
     },
+    {
+     resolve: `gatsby-plugin-google-gtag`,
+     options: {
+       // You can add multiple tracking ids and a pageview event will be fired for all of them.
+       trackingIds: [
+         "G-XHV77LJJY2", // Google Analytics / GA
+       ],
+       // This object is used for configuration specific to this plugin
+       pluginConfig: {
+         // Puts tracking script in the head instead of the body
+         head: true,
+         // Setting this parameter is also optional
+         respectDNT: true,
+         // Avoids sending pageview hits from custom paths
+         exclude: ["/preview/**", "/do-not-track/me/too/"],
+       },
+     },
+   },
   ],
 }
